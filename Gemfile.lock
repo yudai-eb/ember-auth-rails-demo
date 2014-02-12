@@ -271,6 +271,7 @@ DEPENDENCIES
   ember-auth-module-rememberable-rails (~> 1.0)
   ember-auth-rails (~> 5.0)
   ember-auth-request-jquery-rails (~> 1.0)
+  ember-auth-request-jquery-source (~> 1.0)
   ember-auth-response-json-rails (~> 1.0)
   ember-auth-session-cookie-rails (~> 1.0)
   ember-auth-strategy-token-rails (~> 1.0)

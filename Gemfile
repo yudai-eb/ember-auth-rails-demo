@@ -23,6 +23,7 @@ gem 'emblem-rails', '~> 0.1' # easier to write templates
 
 gem 'ember-auth-rails', '~> 5.0' # client-side authentication
 gem 'ember-auth-request-jquery-rails', '~> 1.0' # auth requests via jQuery.ajax
+gem 'ember-auth-request-jquery-source', '~> 1.0'
 gem 'ember-auth-response-json-rails', '~> 1.0' # responses in json
 gem 'ember-auth-strategy-token-rails', '~> 1.0' # token authentication
 gem 'ember-auth-session-cookie-rails', '~> 1.0' # use cookies
