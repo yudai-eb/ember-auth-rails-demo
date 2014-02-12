@@ -19,7 +19,7 @@ development:
   encoding: unicode
   database: ember-auth-rails-demo_development
   pool: 5
-  username: ember-auth-rails-demo
+  username: TakehiroSuzuki
   password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
@@ -48,7 +48,7 @@ test:
   encoding: unicode
   database: ember-auth-rails-demo_test
   pool: 5
-  username: ember-auth-rails-demo
+  username: TakehiroSuzuki
   password:
 
 production:
@@ -56,5 +56,5 @@ production:
   encoding: unicode
   database: ember-auth-rails-demo_production
   pool: 5
-  username: ember-auth-rails-demo
+  username: TakehiroSuzuki
   password:
