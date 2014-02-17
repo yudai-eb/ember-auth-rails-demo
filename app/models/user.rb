@@ -6,4 +6,10 @@ class User < ActiveRecord::Base
          :token_authenticatable
 
   validates :email, presence: true
+  belongs_to :roll
+
+  def get_abilities
+    roll.roll_ability_names.map{|i| i.ability_name.ability_name }
+  end
 end
+

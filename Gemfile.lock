@@ -38,7 +38,6 @@ GEM
       emblem-source
     bcrypt-ruby (3.1.2)
     builder (3.1.4)
-    cancan (1.6.10)
     celluloid (0.15.2)
       timers (~> 1.1.0)
     celluloid-io (0.15.0)
@@ -271,7 +270,6 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers (~> 0.7)
   bcrypt-ruby (~> 3.0)
-  cancan
   coffee-rails (~> 4.0)
   database_cleaner (~> 1.0)
   devise (>= 3.0, < 3.1)

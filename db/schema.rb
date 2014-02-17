@@ -11,13 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131018101511) do
+ActiveRecord::Schema.define(version: 20140217063903) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "ability_names", force: true do |t|
+    t.string   "ability_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "posts", force: true do |t|
     t.string   "title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roll_ability_names", force: true do |t|
+    t.integer  "roll_id"
+    t.integer  "ability_name_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "rolls", force: true do |t|
+    t.string   "roll_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -43,6 +62,7 @@ ActiveRecord::Schema.define(version: 20131018101511) do
     t.string   "authentication_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "roll_id"
   end
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
