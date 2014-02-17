@@ -11,8 +11,9 @@ gem 'coffee-rails', '~> 4.0'
 gem 'sass-rails', '~> 4.0'
 gem 'uglifier', '~> 2.1'
 
-gem 'devise', '>= 3.0', '< 3.1' # server-side authentication
-                                # 3.1 removes token auth
+gem 'devise', '>= 3.0', '< 3.1'
+gem 'cancan'
+
 gem 'bcrypt-ruby', '~> 3.0' # password encryption
 
 gem 'active_model_serializers', '~> 0.7' # json that conforms to ember-data expectation
