@@ -11,5 +11,9 @@ class User < ActiveRecord::Base
   def get_abilities
     roll.roll_ability_names.map{|i| i.ability_name.ability_name }
   end
+
+  def admin?
+    get_abilities.include? 'admin'
+  end
 end
 

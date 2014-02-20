@@ -1,5 +1,7 @@
 module Api
   class BaseController < ApplicationController
+    include Pundit
+
     respond_to :json
     before_action :default_json
 
