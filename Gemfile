@@ -12,7 +12,7 @@ gem 'sass-rails', '~> 4.0'
 gem 'uglifier', '~> 2.1'
 
 gem 'devise', '>= 3.0', '< 3.1'
-# gem 'cancan'
+gem 'pundit'
 
 gem 'bcrypt-ruby', '~> 3.0' # password encryption
 
