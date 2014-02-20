@@ -7,7 +7,7 @@ class UserSerializer < BaseSerializer
   end
 
   def ability
-    User.find(self.id).get_abilities
+    current_user.get_abilities
   end
 end
 
