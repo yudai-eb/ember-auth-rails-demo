@@ -7,7 +7,7 @@ module Api
         @posts = Post.all
       end
 
-      raise NotAuthorizedError unless PostPolicy.new(current_user, @posts).index?
+      # raise NotAuthorizedError unless PostPolicy.new(current_user, @posts).index?
       respond_with @posts
     end
 

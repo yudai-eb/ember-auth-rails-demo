@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe Api::UsersController do
-  let(:user) { Fabricate(:user) }
-  before { user } # initialize it
+  let(:user) { Fabricate(:admin_user) }
+  before { user }
 
   describe 'GET index' do
     context 'unauthorized' do
