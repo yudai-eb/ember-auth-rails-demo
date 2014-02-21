@@ -6,11 +6,9 @@ end
 Fabricator :admin_user, class_name: User do
   email { sequence(:email) { |i| "foo#{i}@example.com"} }
   password 'foobarbaz'
-  roll_id 1
 
-  after_create do
-    Fabricate(:admin_roll)
+  after_create do |admin_user|
     Fabricate(:admin_rolls_ability)
-    Fabricate(:admin_ability)
   end
 end
+

@@ -1,4 +1,6 @@
 Fabricator :admin_rolls_ability, class_name: RollsAbility do
-  roll_id  1
-  ability_id 1
+  after_create do |admin_rolls_ability|
+    Fabricate(:admin_roll, :id => admin_rolls_ability.roll_id)
+    Fabricate(:admin_ability, :id => admin_rolls_ability.ability_id)
+  end
 end
