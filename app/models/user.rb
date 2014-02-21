@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   belongs_to :roll
 
   def get_abilities
-    roll.roll_ability_names.map{|i| i.ability_name.ability_name }
+    roll.rolls_abilities.map{|i| i.ability.ability_name }
   end
 
   def admin?

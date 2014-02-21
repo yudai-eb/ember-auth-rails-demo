@@ -11,12 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140217063903) do
+ActiveRecord::Schema.define(version: 20140221070245) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "ability_names", force: true do |t|
+  create_table "abilities", force: true do |t|
     t.string   "ability_name"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -28,18 +28,21 @@ ActiveRecord::Schema.define(version: 20140217063903) do
     t.datetime "updated_at"
   end
 
-  create_table "roll_ability_names", force: true do |t|
-    t.integer  "roll_id"
-    t.integer  "ability_name_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "rolls", force: true do |t|
     t.string   "roll_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "rolls_abilities", force: true do |t|
+    t.integer  "roll_id"
+    t.integer  "ability_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rolls_abilities", ["ability_id"], name: "idx_ability_id", using: :btree
+  add_index "rolls_abilities", ["roll_id"], name: "idx_roll_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
