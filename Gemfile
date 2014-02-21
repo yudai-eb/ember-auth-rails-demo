@@ -1,28 +1,41 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 
-ruby '2.1.0' # or 1.9.3
+ruby '2.1.0'
 
-gem 'rails', '~> 4.0'
-gem 'pg', '~> 0.14'
-gem 'unicorn', '~> 4.6'
+gem 'rails'
 
-gem 'jquery-rails', '~> 3.0'
-gem 'coffee-rails', '~> 4.0'
-gem 'sass-rails', '~> 4.0'
-gem 'uglifier', '~> 2.1'
-
+gem 'pg'
+gem 'bcrypt-ruby'
 gem 'devise', '>= 3.0', '< 3.1'
 gem 'pundit'
 
-gem 'bcrypt-ruby', '~> 3.0' # password encryption
+gem 'unicorn'
 
-gem 'active_model_serializers', '~> 0.7' # json that conforms to ember-data expectation
+gem 'jquery-rails'
+gem 'coffee-rails'
+gem 'sass-rails'
+gem 'uglifier'
 
-gem 'ember-rails', '~> 0.13' # ember framework
+=begin
+# for rails views
+gem 'haml-rails'
+gem 'simple_form'
+gem 'html5_validators'
+gem 'kaminari'
+
+# OAuth
+gem 'omniauth'
+gem 'figaro'
+=end
+
+gem 'active_model_serializers', '~> 0.7'
+
+gem 'ember-rails', '~> 0.13'
 gem 'ember-data-source', '>= 1.0.0.beta.3', '< 2.0' # ember-data not yet out of beta
 gem 'emblem-rails', '~> 0.1' # easier to write templates
 
-gem 'ember-auth-rails', '~> 5.0' # client-side authentication
+gem 'ember-auth-rails', '~> 5.0'
 gem 'ember-auth-request-jquery-rails', '~> 1.0' # auth requests via jQuery.ajax
 gem 'ember-auth-request-jquery-source', '~> 1.0'
 gem 'ember-auth-response-json-rails', '~> 1.0' # responses in json
@@ -33,20 +46,46 @@ gem 'ember-auth-module-auth_redirectable-rails', '~> 1.0' # auth-only routes
 gem 'ember-auth-module-action_redirectable-rails', '~> 1.0' # post- sign in/out redirect
 gem 'ember-auth-module-rememberable-rails', '~> 1.0' # remember me
 
-group :test do
-  gem 'rspec-rails', '~> 2.13' # test framework
-  gem 'spork', '>= 1.0.0rc3', '< 2.0' # speedier tests
-  gem 'guard-rspec', '~> 3.0' # watch app files and auto-re-run tests
-  gem 'guard-spork', '~> 1.5' # spork integration
-  gem 'database_cleaner', '~> 1.0' # cleanup database in tests
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'rake_shared_context'
+
+  gem 'guard-rspec'
+  gem 'guard-livereload'
+  gem 'growl'
+
+  gem 'awesome_print'
+  gem 'pry-rails'
+  gem 'pry-coolline'
+  gem 'pry-doc'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+  gem 'pry-remote'
+  gem 'tapp'
+
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem "annotate", github: "ctran/annotate_models"
+
+  gem 'hirb'
+  gem 'hirb-unicode'
+
+  gem 'rack-mini-profiler'
+  gem 'colorize_unpermitted_parameters'
+  gem 'timecop'
+
+  gem 'database_cleaner', '~> 1.0'
+  gem 'database_rewinder'
   gem 'fabrication', '~> 2.6' # model stubber
   gem 'shoulda', '~> 3.3' # model spec tester
-  gem 'rb-inotify', require: false  # Linux file notification
-  gem 'rb-fsevent', require: false  # OSX file notification
-  gem 'rb-fchange', require: false  # Windows file notification
 end
 
 group :production do
-  gem 'rails_12factor', '~> 0.0' # tweaks for heroku
-  gem 'newrelic_rpm', '~> 3.5' # prevent heroku from idling
+  gem 'newrelic_rpm'
 end
+
+gem 'quiet_assets'
+gem 'rails-flog'
+gem 'airbrake'
+gem 'hashie'
+
