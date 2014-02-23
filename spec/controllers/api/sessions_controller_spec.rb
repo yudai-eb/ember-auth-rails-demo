@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Api::SessionsController do
-  let(:user) { Fabricate(:user) }
+  let(:user) { Fabricate(:admin_user) }
 
   before { user.ensure_authentication_token! }
 
