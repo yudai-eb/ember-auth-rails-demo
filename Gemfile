@@ -48,7 +48,11 @@ gem 'ember-auth-module-rememberable-rails', '~> 1.0' # remember me
 
 group :test, :development do
   gem 'rspec-rails'
+  gem 'shoulda-matchers'
   gem 'rake_shared_context'
+
+  gem 'database_rewinder'
+  gem 'fabrication'
 
   gem 'guard-rspec'
   gem 'guard-livereload'
@@ -73,11 +77,6 @@ group :test, :development do
   gem 'rack-mini-profiler'
   gem 'colorize_unpermitted_parameters'
   gem 'timecop'
-
-  gem 'database_cleaner', '~> 1.0'
-  gem 'database_rewinder'
-  gem 'fabrication', '~> 2.6' # model stubber
-  gem 'shoulda', '~> 3.3' # model spec tester
 end
 
 group :production do
