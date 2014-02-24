@@ -9,10 +9,7 @@ describe Api::PostsController do
     subject { JSON.parse response.body }
 
     it 'wraps around posts' do should include 'posts' end
-
-    it 'returns http 200' do
-      response.response_code.should == 200
-    end
+    it_behaves_like 'http code', 200
   end
 
   describe 'GET show' do
@@ -27,8 +24,6 @@ describe Api::PostsController do
       it { should include 'param' }
     end
 
-    it 'returns http 200' do
-      response.response_code.should == 200
-    end
+    it_behaves_like 'http code', 200
   end
 end

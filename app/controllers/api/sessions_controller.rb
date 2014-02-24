@@ -18,6 +18,7 @@ module Api
         user_id: @user.id,
         auth_token: @user.authentication_token
       }
+
       if params[:remember]
         @user.remember_me!
         data[:remember_token] = remember_token
@@ -67,3 +68,4 @@ module Api
     end
   end
 end
+

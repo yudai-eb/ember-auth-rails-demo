@@ -4,13 +4,11 @@ describe Api::UsersController do
   let(:user) { Fabricate(:admin_user) }
   before { user }
 
-  describe 'GET /api/users' do
+  describe 'GET /api/users', '#index' do
     context 'unauthorized' do
       before { get :index }
 
-      it 'returns http 401' do
-        response.response_code.should == 401
-      end
+      it_behaves_like 'http code', 401
     end
 
     context 'authorized' do
@@ -22,19 +20,15 @@ describe Api::UsersController do
 
       it 'usersがresponseに含まれる' do should include 'users' end
 
-      it 'returns http 200' do
-        response.response_code.should == 200
-      end
+      it_behaves_like 'http code', 200
     end
   end
 
-  describe 'GET /api/users/:id' do
+  describe 'GET /api/users/:id', '#show' do
     context 'unauthorized' do
       before { get :show, id: user.id }
 
-      it 'returns http 401' do
-        response.response_code.should == 401
-      end
+      it_behaves_like 'http code', 401
     end
 
     context 'authorized' do
@@ -42,6 +36,7 @@ describe Api::UsersController do
         user.ensure_authentication_token!
         get :show, id: user.id, auth_token: user.authentication_token
       end
+
       subject { JSON.parse response.body }
       it 'userがresponseに含まれる' do should include 'user' end
 
@@ -51,10 +46,8 @@ describe Api::UsersController do
         it { should include 'email' }
         it { should include 'param' }
         it { should include 'ability' }
-      end
 
-      it 'returns http 200' do
-        response.response_code.should == 200
+        it_behaves_like 'http code', 200
       end
     end
   end
