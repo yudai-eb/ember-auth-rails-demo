@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe RollsAbility do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'リレーションシップ' do
+    it { should belong_to(:roll) }
+    it { should belong_to(:ability) }
+  end
 end

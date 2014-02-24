@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Api::PostsController do
   let(:post) { Fabricate(:post) }
-  before { post } # initialize it
+  before { post }
 
   describe 'GET index' do
     before { get :index }

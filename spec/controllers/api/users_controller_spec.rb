@@ -4,7 +4,7 @@ describe Api::UsersController do
   let(:user) { Fabricate(:admin_user) }
   before { user }
 
-  describe 'GET index' do
+  describe 'GET /api/users' do
     context 'unauthorized' do
       before { get :index }
 
@@ -20,7 +20,7 @@ describe Api::UsersController do
       end
       subject { JSON.parse response.body }
 
-      it 'wraps around users' do should include 'users' end
+      it 'usersがresponseに含まれる' do should include 'users' end
 
       it 'returns http 200' do
         response.response_code.should == 200
@@ -28,7 +28,7 @@ describe Api::UsersController do
     end
   end
 
-  describe 'GET show' do
+  describe 'GET /api/users/:id' do
     context 'unauthorized' do
       before { get :show, id: user.id }
 
@@ -43,13 +43,14 @@ describe Api::UsersController do
         get :show, id: user.id, auth_token: user.authentication_token
       end
       subject { JSON.parse response.body }
+      it 'userがresponseに含まれる' do should include 'user' end
 
-      it 'wraps around user' do should include 'user' end
       context 'inside user' do
         subject { JSON.parse(response.body)['user'] }
         it { should include 'id' }
         it { should include 'email' }
         it { should include 'param' }
+        it { should include 'ability' }
       end
 
       it 'returns http 200' do
@@ -58,3 +59,4 @@ describe Api::UsersController do
     end
   end
 end
+
